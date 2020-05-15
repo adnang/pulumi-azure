@@ -146,6 +146,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
     /**
+     * The resource ID of a firewall policy.
+     */
+    public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
+    /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
     public readonly frontendIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayFrontendIpConfiguration[]>;
@@ -244,6 +248,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
+            inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
             inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
@@ -299,6 +304,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
+            inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
             inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
@@ -359,6 +365,10 @@ export interface ApplicationGatewayState {
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
     readonly enableHttp2?: pulumi.Input<boolean>;
+    /**
+     * The resource ID of a firewall policy.
+     */
+    readonly firewallPolicyId?: pulumi.Input<string>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -469,6 +479,10 @@ export interface ApplicationGatewayArgs {
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
     readonly enableHttp2?: pulumi.Input<boolean>;
+    /**
+     * The resource ID of a firewall policy.
+     */
+    readonly firewallPolicyId?: pulumi.Input<string>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */

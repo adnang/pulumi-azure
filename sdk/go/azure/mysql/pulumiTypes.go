@@ -11,14 +11,12 @@ import (
 )
 
 type ServerStorageProfile struct {
-	// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
 	AutoGrow *string `pulumi:"autoGrow"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-	StorageMb int `pulumi:"storageMb"`
+	StorageMb *int `pulumi:"storageMb"`
 }
 
 // ServerStorageProfileInput is an input type that accepts ServerStorageProfileArgs and ServerStorageProfileOutput values.
@@ -34,14 +32,12 @@ type ServerStorageProfileInput interface {
 }
 
 type ServerStorageProfileArgs struct {
-	// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
 	AutoGrow pulumi.StringPtrInput `pulumi:"autoGrow"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-	StorageMb pulumi.IntInput `pulumi:"storageMb"`
+	StorageMb pulumi.IntPtrInput `pulumi:"storageMb"`
 }
 
 func (ServerStorageProfileArgs) ElementType() reflect.Type {
@@ -121,8 +117,6 @@ func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutputWithContext(c
 		return &v
 	}).(ServerStorageProfilePtrOutput)
 }
-
-// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
 func (o ServerStorageProfileOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
 }
@@ -132,14 +126,13 @@ func (o ServerStorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
 func (o ServerStorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-func (o ServerStorageProfileOutput) StorageMb() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
+func (o ServerStorageProfileOutput) StorageMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerStorageProfile) *int { return v.StorageMb }).(pulumi.IntPtrOutput)
 }
 
 type ServerStorageProfilePtrOutput struct{ *pulumi.OutputState }
@@ -160,7 +153,6 @@ func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
 	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile { return *v }).(ServerStorageProfileOutput)
 }
 
-// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
 func (o ServerStorageProfilePtrOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerStorageProfile) *string {
 		if v == nil {
@@ -180,7 +172,6 @@ func (o ServerStorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
 func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerStorageProfile) *string {
 		if v == nil {
@@ -196,7 +187,7 @@ func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageMb
+		return v.StorageMb
 	}).(pulumi.IntPtrOutput)
 }
 

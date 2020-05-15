@@ -54,6 +54,8 @@ type Server struct {
 	StorageProfile ServerStorageProfileOutput `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrOutput `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -135,6 +137,8 @@ type serverState struct {
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
@@ -180,6 +184,8 @@ type ServerState struct {
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
@@ -227,6 +233,8 @@ type serverArgs struct {
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
@@ -271,6 +279,8 @@ type ServerArgs struct {
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }

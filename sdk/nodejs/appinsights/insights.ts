@@ -93,7 +93,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface InsightsState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
@@ -252,7 +252,7 @@ export interface InsightsArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**

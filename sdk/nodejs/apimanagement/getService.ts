@@ -75,6 +75,10 @@ export interface GetServiceResult {
      */
     readonly hostnameConfigurations: outputs.apimanagement.GetServiceHostnameConfiguration[];
     /**
+     * (Optional) An `identity` block as defined below.
+     */
+    readonly identities: outputs.apimanagement.GetServiceIdentity[];
+    /**
      * The location name of the additional region among Azure Data center regions.
      */
     readonly location: string;

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Role
 {
     /// <summary>
-    /// Assigns a given Principal (User or Application) to a given Role.
+    /// Assigns a given Principal (User or Group) to a given Role.
     /// 
     /// Deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
     /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Role
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
